@@ -9,4 +9,13 @@ abstract contract Properties is BeforeAfter, Asserts {
     function invariant_number_never_zero() public {
         gt(counter.number(), 0, "number is zero");
     }
+
+    uint256 count;
+
+    function increase_count() public {
+        count++;
+    }
+    function invariant_count_never_gt_0() public {
+        gte(1, count, "Count is never gt 0");
+    }
 }
